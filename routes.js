@@ -1,9 +1,15 @@
-const express = require('express')
+const express = require("express");
 const routes = express.Router()
 
-const CarroController = require('./controllers/CarroController')
+const CarroController = require("./controllers/CarroController");
+const UsuarioController = require("./controllers/UsuarioController");
+const login = require("./middleware/login")
 
-routes.get('/carros', CarroController.index)
-      .post('/carros', CarroController.store);
+routes.get("/carros", login, CarroController.index)
+      .post("/carros", CarroController.store);
 
-module.exports = routes
+routes.get("/usuarios", UsuarioController.index)
+      .post("/usuarios", UsuarioController.store)
+      .post("/login", UsuarioController.login);
+
+module.exports = routes;

@@ -1,5 +1,3 @@
-// Update with your config settings.
-
 module.exports = {
 
   development: {
@@ -16,7 +14,7 @@ module.exports = {
     },
     seeds: {
       directory: './database/seeds'
-    }
+    }        
   }
 
 };

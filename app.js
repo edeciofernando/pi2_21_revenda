@@ -1,17 +1,17 @@
 const express = require('express')
 const app = express()
+const port = 3000
 
-const routes = require('./routes');
-
-// middleware para aceitar dados no formato json
-app.use(express.json());
+const routes = require('./routes')
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.use(express.json());
+
 app.use(routes);
 
-app.listen(3000, () => {
-  console.log(`Servidor Node.js em execução...`)
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 })
